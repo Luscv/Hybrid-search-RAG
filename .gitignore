@@ -1,0 +1,6 @@
+data/chroma/
+.env
+venv/
+__pycache__/
+eval/logs/
+.DS_Store

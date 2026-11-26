@@ -1,0 +1,14 @@
+id,tipo,pergunta,resposta_esperada,ids_esperados,tool_esperada,valores_esperados
+P01,consulta,Qual o preço unitário do Côte de Blaye?,"US$ 263.50 (Côte de Blaye, produto 38).",produtos:38,,263.5
+P02,consulta,Quais são os detalhes do pedido 10248?,"Pedido de 1996-07-04 do cliente Vins et alcools Chevalier (VINET), atendido por Steven Buchanan; enviado em 1996-07-16 pela Federal Shipping, frete de US$ 32.38, destino Reims/France. Itens: Queso Cabrales (12 un.), Singaporean Hokkien Fried Mee (10 un.), Mozzarella di Giovanni (5 un.). Valor total: US$ 440.00.",pedidos:10248,,440.0;32.38
+P03,consulta,Quem é o supervisor da Anne Dodsworth?,"Steven Buchanan (Sales Manager, funcionário 5).",funcionarios:9,,
+P04,semantica,Quais funcionários estudaram psicologia?,"Nancy Davolio (funcionário 1) e Laura Callahan (funcionário 8), segundo as observações do cadastro.",funcionarios:1;funcionarios:8,,
+P05,semantica,Em qual categoria ficam os queijos?,"Dairy Products (categoria 4), descrita como ""Cheeses"".",categorias:4,,
+P06,fora_escopo,Qual a capital da França?,Não encontrei essa informação nos documentos disponíveis.,,,
+P07,fora_escopo,Qual o salário da Nancy Davolio?,Não encontrei essa informação nos documentos disponíveis.,,,
+P08,analitica,Qual funcionário teve o melhor desempenho em vendas?,"Margaret Peacock (funcionário 4), com faturamento de US$ 232,890.85 entre 1996-07 e 1998-05.",,ranking,232890.85
+P09,analitica,Quem são os top 3 clientes por volume?,1. Save-a-lot Markets (SAVEA): 4958 unidades; 2. Ernst Handel (ERNSH): 4543 unidades; 3. QUICK-Stop (QUICK): 3961 unidades. Volume = soma das unidades dos itens de pedido.,,ranking,4958;4543;3961
+P10,analitica,O faturamento da Alemanha caiu de 1997 para 1998?,"Os valores caem de US$ 117,320.16 em 1997 para US$ 77,557.32 em 1998 (-33.89%), mas 1998 é um ano parcial: só há pedidos de 1998-01 a 1998-05 (5 meses). A comparação com o ano cheio de 1997 não indica queda real.",,comparar_anos,117320.16;77557.32
+P11,analitica,Quanto a Margaret Peacock faturou em 1997?,"US$ 128,809.79 em 81 pedidos de 1997 (Margaret Peacock, funcionário 4).",,consultar_total,128809.79
+P12,qualidade,Os dados estão prontos para uso?,"Base com 8 tabelas e 3202 registros. Os dados estão prontos para uso, com ressalvas: 9 pontos documentados (Q001 a Q009). Nenhum registro foi removido. 209 linhas malformadas foram reparadas, e situações de negócio foram sinalizadas em colunas (enviado, atrasado, sem_estoque, precisa_repor).",qualidade_dados:Q000,,209
+P13,qualidade,Havia problemas de formatação nos arquivos originais?,"Sim. 209 linhas tinham campos a mais por vírgulas não escapadas em nomes e endereços: customers (24), orders (176), suppliers (9). Linhas reparadas juntando ao campo anterior o trecho que começa com espaço. Nenhuma linha bem formada foi alterada.",qualidade_dados:Q001,,209

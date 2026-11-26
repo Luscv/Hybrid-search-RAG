@@ -1,0 +1,11 @@
+id_problema,tabelas,problema,encontrado,tratamento,n_registros
+Q000,todas,Visão geral da qualidade dos dados,"Base com 8 tabelas e 3202 registros. Os dados estão prontos para uso, com ressalvas: 9 pontos documentados (Q001 a Q009).","Nenhum registro foi removido. 209 linhas malformadas foram reparadas, e situações de negócio foram sinalizadas em colunas (enviado, atrasado, sem_estoque, precisa_repor).",209
+Q001,clientes;pedidos;fornecedores,Vírgulas sem aspas em campos de texto,"209 linhas tinham campos a mais por vírgulas não escapadas em nomes e endereços: customers (24), orders (176), suppliers (9).",Linhas reparadas juntando ao campo anterior o trecho que começa com espaço. Nenhuma linha bem formada foi alterada.,209
+Q002,todas,Marcador NULL como texto,695 células com o texto literal NULL.,Convertidas em valor ausente; o campo é omitido no documento indexado.,695
+Q003,pedidos,Pedidos não enviados,21 pedidos sem data de envio.,"Mantidos e sinalizados (enviado = False). Entram no faturamento, pois o pedido existe.",21
+Q004,pedidos,Pedidos enviados com atraso,37 pedidos enviados depois da data prevista.,Mantidos e sinalizados (atrasado = True).,37
+Q005,itens_pedido;produtos,Preço do item diferente do preço de tabela,658 de 2155 itens foram vendidos a um preço diferente do preço atual de tabela.,Faturamento usa o preço praticado no item; o preço de tabela vale só como referência atual.,658
+Q006,produtos,Produtos descontinuados e sem estoque,"8 produtos descontinuados; 5 sem estoque (Chef Anton's Gumbo Mix, Alice Mutton, Thüringer Rostbratwurst, Gorgonzola Telino, Perth Pasties).","Mantidos e sinalizados (descontinuado, sem_estoque, precisa_repor).",8
+Q007,clientes,Clientes sem pedidos,"2 clientes cadastrados sem nenhum pedido: FISSA, PARIS.",Mantidos no cadastro; não aparecem nas tools analíticas.,2
+Q008,pedidos,Anos parciais,Pedidos de 1996-07-04 a 1998-05-06. Anos incompletos: 1996: 6 meses; 1998: 5 meses.,Mantidos. As tools avisam quando um ano parcial entra numa conta: comparar ano parcial com ano cheio distorce a variação.,2
+Q009,categorias;funcionarios,Colunas de imagem binária,"Colunas picture, photo e photoPath com imagens em hexadecimal.",Removidas: sem valor para busca textual.,3
